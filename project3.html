@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AGE CALCULATOR</title>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: #a0c9c7;
+                font-size: 15px;
+                line-height: 1.5;
+                padding: 0px;
+                margin: 0px;
+            }
+            *{
+                box-sizing: border-box;
+            }
+            .container{
+                width: 520px;
+                height: auto;
+                margin: 100px auto;
+                background-color: #eee;
+                border-radius: 25px;
+            }
+            .base{
+                width: 100%;
+                margin: 0px;
+                overflow: hidden;
+                display: block;
+                float: none;
+            }
+            .block{
+                width: 135%;
+                padding: 5px 20px;
+                margin-left: 20px;
+                display: inline-block;
+                float: left;
+
+            }
+            .base h4{
+                font-size: 20px;
+                text-align: center;
+                font-family: sans-serif;
+                font-weight: 100px;
+                margin-top: 0px;
+                box-shadow: 0px 2px #bababa;
+                background: white;
+                font-size: 20px;
+                color: rgb(120, 131, 128);
+                margin-left: 0;
+            }
+
+            .title{
+                font-size: 10px;
+                text-align: left;
+                font-family: sans-serif;
+                font-weight: bold;
+                line-height: 0.5;
+                letter-spacing: 0.2px;
+                word-spacing:2.7px;
+                color: #9da1a1;
+            }
+
+            input[type=text]{
+                width: 140px;
+                margin: auto;
+                outline: none;
+                min-height: 50px;
+                border: 2px solid #1073d0;
+                padding: 12px;
+                background-color: #f7f7f7;
+                border-radius: 2px;
+                color: #1073d0;
+                font-size: 17px;
+            }
+            input[type=text]:focus{  
+            background-color: #ffffff;  
+             border: 2px solid orange;  
+             outline: none;  
+            }
+
+            input[type=button]{  
+            width: 100px;  
+            margin-left: 35%;  
+            margin-top: 40px;  
+            outline: none;  
+            border: black;  
+            border-radius: 2px;  
+            background-color: #07090a;  
+            color: #ffffff;  
+            padding: 14px 16px;  
+            text-align: center;  
+            font-size: 15px;  
+            font-weight: bold;
+            
+            }  
+
+             input[type=button]:hover{  
+             background-color: #7e7474;  
+            }
+
+            #age{  
+            display: block;  
+            margin: 10px;  
+            margin-top: 35px;  
+            padding: 10px;  
+            padding-bottom: 20px;  
+            overflow: hidden;  
+            font-family: Times New Roman;  
+            font-size: 23px;  
+            font-weight: bolder;  
+            line-height: 1.5;  
+             word-spacing: 2.7px;  
+            color: black;  
+            } 
+
+
+        </style>
+
+
+            <script>
+            function age() {  
+            var d1 = document.getElementById('date').value;  
+            var m1 = document.getElementById('month').value;  
+            var y1 = document.getElementById('year').value;  
+            var date = new Date();  
+            var d2 = date.getDate();  
+            var m2 = 1 + date.getMonth();  
+            var y2 = date.getFullYear();         
+            var month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];  
+            if(d1 > d2){  
+             d2 = d2 + month[m2 - 1];  
+             m2 = m2 - 1;  
+            }  
+            if(m1 > m2){  
+             m2 = m2 + 12;  
+             y2 = y2 - 1;  
+            }  
+            var d = d2 - d1;  
+            var m = m2 - m1;  
+            var y = y2 - y1;  
+            document.getElementById('age').innerHTML = 'Your Age is '+y+' Years '+m+' Months '+d+' Days';  
+            }  
+            </script>
+    </head>
+    <body>
+        <div class="container">
+            <form>
+                <div class="base">
+                <div class="enter">
+                    <h4> AGE CALCULATOR</h4>
+                    </div>
+                    <div class="block">
+                        <p class="title">DATE</p>
+                        <input type="text " name ="date" id= "date" placeholder="Enter your BirthDate" required="required" minlength="1" maxlength="2"/>
+                    </div>
+                    <i class="fa fa-spinner fa-pulse"></i>
+                    <div class="block">
+                        <p class="title">MONTH</p>
+                        <input type="text " name ="month" id= "month" placeholder="Enter your BirthMonth " required="required" minlength="1" maxlength="2"/>
+                    </div>
+                    <div class="block">
+                        <p class="title">YEAR</p>
+                        <input type="text " name ="year" id= "year" placeholder="Enter your BirthYear" required="required" minlength="4" maxlength="4"/>
+                    </div>                    
+                    </div>
+                    <div class="base">
+                        <div class="enter">
+                            <input type = "button" name ="SUBMIT" value="SUBMIT " onclick="age()" />
+                        </div>
+                        </div>
+                        <div id="age"></div>
+            </form>
+        </div>
+    </body>
+</html>
